@@ -1,0 +1,164 @@
+html, body{
+    height: 100%;
+}
+body { 
+    background: lightblue url("graphics/background.png") fixed; 
+  }
+  div{
+    transition: .15s ease-in-out;
+  }
+#searchArea {
+    background: #1c688e;
+}
+#pageContentArea{
+    width:80%;
+    /* min-height: 49em;
+    max-height: 51em; */
+    min-height: 90%;
+    max-height: 90%;
+    background: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+#resultsArea,#searchArea{
+    padding:2em
+}
+#filterArea{
+    padding:1em
+}
+#resultCardsArea{
+    /* max-height: 500px; */
+    /* height: 100%; */
+    /* overflow: auto; */
+    /* overflow: scroll; */
+    padding-left:20px;
+    padding-top:10px;
+    height:100vh;
+    /* height: 10%; */
+    /* max-height: 49em; */
+}
+#resultsArea{
+    border-left: 1px solid lightgrey;
+    /* max-height: 500px; */
+    /* min-height: 48em;*/
+    max-height: 49em; 
+}
+.resultCard{
+    padding:1em;
+    width: 90%;
+    margin-left: 100px;
+    /* background: #8e1c1c; */
+    /* margin:5px */
+}
+.resultCard:hover{
+    padding:1em;
+    /* border: 2px solid #8e1c1c;
+    /* margin:5px */
+    border-radius: 3px; 
+
+    /* border: 1px solid #07c; */
+    box-shadow: 0 0 10px #07c;
+}
+.resultImage{
+    width:80px;
+    height: 80px;
+    border-radius: 5px;
+}
+.restaurantName{
+    font-weight: bold;
+    font-size: 1.2em
+}
+.restaurantDescriptionLine{
+    color: rgb(168, 168, 168);
+}
+/* .filterRow{
+    padding-left: 10%;
+    font-weight:300;
+    border-radius: 5px;
+} */
+.cuisineFilterCount{
+    font-weight:300;
+    color: rgb(168, 168, 168);
+}
+.filterRow:hover{
+    background: #3c98aeFF;
+    transition: .3s ease-in-out;
+    color:white
+}
+.filterRow{
+    transition: .3s ease;
+    padding-left: 10%;
+    font-weight:300;
+    border-radius: 5px;
+}
+.filterRow.selected{
+    transition: .3s ease;
+    font-weight: 400;
+    background: #3c97ae7c;
+}
+.filterCardRow{
+    padding-left: 10%;
+}
+.filterHeader{
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+}
+.ratingStar{
+    width:1em;
+    height: 1em;
+}
+.cardIcon{
+    width:4em;
+    height: 3em;
+    margin: 5px;
+    transition: .3s ease-in-out;
+}
+.cardIcon:hover{
+    transition: .3s ease-in-out;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.cardIcon.selected{
+    /* border: 3px solid #4e6e7b; */
+    border-radius: 3px;
+    box-shadow: 0 0 10px #07c;
+}
+.stars{
+    position: relative;
+    width:66%;
+    height:100%;
+    background-color: #ffab66; 
+}
+.starHolder{
+    width:7em;
+    height:1.2em;
+    background-color: #e1e1e1;
+}
+.starMask{
+    position:relative;
+    /* height:100%; */
+    width:100%;
+    top:-1.4em
+}
+.restaurantRating{
+
+    color: #ffab66;
+}
+.reviewCount{
+    color:#b1b1b1;
+}
+#container{
+    max-height: 300px;
+}
+#showmore{
+    margin-top:5px;
+}
+#resultSummary{
+    font-size:1.1em;
+    font-weight: 500;;
+}
+#resultTime{
+    font-size:0.8em;
+
+}
