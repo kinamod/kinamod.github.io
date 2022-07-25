@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Restaurant Locator - by Algolia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@3/dist/algoliasearchLite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch-helper@3.8.3/dist/algoliasearch.helper.min.js"></script>
+
+    <script src="resources/app.js"></script>
+    <link rel="stylesheet" href="resources/mystyles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- <div class="welcome-container">
+      <pre id="container"></pre>
+      <p>Hello buddy!</p>
+      <p>Welcome to the Solutions Engineering assignment.</p>
+      <p>This blank page is all yours, let's make it rock!</p>
+    </div> -->
+    <div id="pageContentArea" class="center-block clearfix">
+      <div class="row-no-gutters">
+        <div class="" id="searchArea">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search for Restaurants by Name, Cuisine, Location"
+            id="search-box"
+          />
+        </div>
+      </div>
+      <div class="row-no-gutters">
+        <div class="col-md-3" id="filterArea">
+          <div class="filterHeader">Cuisine/Food Type</div>
+          <div id="foodTypeFacet"></div>
+          <!-- <div class="row-no-gutters filterRow clearfix">
+            <div class="cuisineFilter col-md-10">Italian</div>
+            <div class="cuisineFilterCount col-md-2">90</div>
+          </div>
+          <div class="row-no-gutters filterRow clearfix">
+            <div class="cuisineFilter col-md-10">American</div>
+            <div class="cuisineFilterCount col-md-2">34</div>
+          </div>
+          <div class="row-no-gutters filterRow clearfix">
+            <div class="cuisineFilter col-md-10">French</div>
+            <div class="cuisineFilterCount col-md-2">53</div>
+          </div> -->
+          <div class="filterHeader" id="ratingFilter">Rating</div>
+          <div id="ratingStarsSection">
+            <div class="row-no-gutters filterRow" onclick="filterStars(0)">
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+            </div>
+            <div class="row-no-gutters filterRow" onclick="filterStars(1)">
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+            </div>
+            <div class="row-no-gutters filterRow" onclick="filterStars(2)">
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+            </div>
+            <div class="row-no-gutters filterRow" onclick="filterStars(3)">
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+            </div>
+            <div class="row-no-gutters filterRow" onclick="filterStars(4)">
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+              <img class="ratingStar" src="resources/graphics/star-empty.png" />
+            </div>
+            <div class="row-no-gutters filterRow" onclick="filterStars(5)">
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+              <img
+                class="ratingStar"
+                src="resources/graphics/stars-plain.png"
+              />
+            </div>
+          </div>
+          <div class="filterHeader" id="paymentFilter">Payment Options</div>
+          <div class="row-no-gutters filterCardRow">
+            <img
+              class="cardIcon"
+              src="resources/graphics/amex.png"
+              onclick="paymentFilterOption('AMEX')"
+            />
+            <img
+              class="cardIcon"
+              src="resources/graphics/discover.png"
+              onclick="paymentFilterOption('Discover')"
+            />
+          </div>
+          <div class="row-no-gutters filterCardRow">
+            <img
+              class="cardIcon"
+              src="resources/graphics/mastercard.png"
+              onclick="paymentFilterOption('Mastercard')"
+            />
+            <img
+              class="cardIcon"
+              src="resources/graphics/visa.png"
+              onclick="paymentFilterOption('Visa')"
+            />
+          </div>
+        </div>
+        <div class="col-md-9 clearfix" id="resultsArea">
+          <div class="resultSummary">
+            <span id="resultSummary"></span>
+            <span id="resultTime"></span>
+          </div>
+          <div id="resultCardsArea" class="resultCards">
+            <!-- <div class="resultCard row">
+              <div class="col-md-2">
+                <img
+                  class="resultImage"
+                  width="100em"
+                  height="100em"
+                  src="https://pixel.nymag.com/imgs/daily/vulture/2016/09/29/29-grumpy-cat.w190.h190.jpg"
+                />
+              </div>
+              <div class="col-md-8 resultContent">
+                <div class="row-no-gutters restaurantName">Restaurant Name</div>
+                <div class="row-no-gutters restaurantRating">
+                  <div class="rating col-md-1">4.7</div>
+                  <div class="starHolder col-md-3">
+                    <div class="stars"></div>
+                    <div>
+                      <img
+                        class="starMask"
+                        src="resources/graphics/stars-iconsMask.png"
+                      />
+                    </div>
+                  </div>
+                  <div class="reviewCount col-md-1"></div>
+                  <div class="reviewCount col-md-3">Stars and Rating</div>
+                </div>
+                <div class="row-no-gutters restaurantDescriptionLine">
+                  <div class="col-md-9">Cuisine | Where is it? | Price</div>
+                </div>
+              </div>
+            </div>
+            <div class="resultCard row">Actual Results2</div> -->
+            <!-- <button id="showmore" type="button" class="btn btn-light">
+              Show More
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
