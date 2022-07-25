@@ -1,12 +1,13 @@
-html, body{
+html{
     height: 100%;
 }
 body { 
+    height:95%;
     background: lightblue url("graphics/background.png") fixed; 
-  }
-  div{
+}
+div{
     transition: .15s ease-in-out;
-  }
+}
 #searchArea {
     background: #1c688e;
 }
@@ -15,7 +16,7 @@ body {
     /* min-height: 49em;
     max-height: 51em; */
     min-height: 90%;
-    max-height: 90%;
+    /* max-height: 90%; */
     background: #ffffff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 2em;
@@ -27,22 +28,26 @@ body {
 #filterArea{
     padding:1em
 }
+
+#resultsArea{
+    border-left: 1px solid lightgrey;
+    /* max-height: 500px; */
+    /* min-height: 48em; */
+
+    /* height:80%; */
+    max-height: 80vh;
+
+    overflow: scroll;
+}
 #resultCardsArea{
     /* max-height: 500px; */
     /* height: 100%; */
     /* overflow: auto; */
-    /* overflow: scroll; */
     padding-left:20px;
     padding-top:10px;
-    height:100vh;
+    /* height:100vh; */
     /* height: 10%; */
-    /* max-height: 49em; */
-}
-#resultsArea{
-    border-left: 1px solid lightgrey;
-    /* max-height: 500px; */
-    /* min-height: 48em;*/
-    max-height: 49em; 
+    /* max-height: 200px; */
 }
 .resultCard{
     padding:1em;
@@ -124,22 +129,24 @@ body {
     border-radius: 3px;
     box-shadow: 0 0 10px #07c;
 }
+
+.starHolder{
+    width:7em;
+    height:1.2em;
+    background-color: #e1e1e1;
+}
 .stars{
     position: relative;
     width:66%;
     height:100%;
     background-color: #ffab66; 
 }
-.starHolder{
-    width:7em;
-    height:1.2em;
-    background-color: #e1e1e1;
-}
 .starMask{
-    position:relative;
-    /* height:100%; */
+    position:
+    relative;
+    height:100%;
     width:100%;
-    top:-1.4em
+    top:-1.4em;
 }
 .restaurantRating{
 
