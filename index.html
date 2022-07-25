@@ -37,10 +37,14 @@
           />
         </div>
       </div>
-      <div class="row-no-gutters">
+      <div class="row-no-gutters clearfix" style="height:100%">
         <div class="col-md-3" id="filterArea">
-          <div class="filterHeader">Cuisine/Food Type</div>
-          <div id="foodTypeFacet"></div>
+          <div class="row-no-gutter">
+            <div class="col-md-12">
+            <div class="filterHeader ">Cuisine/Food Type</div>
+            <div class="row-no-gutter" id="foodTypeFacet"></div>
+          </div>
+          </div>
           <!-- <div class="row-no-gutters filterRow clearfix">
             <div class="cuisineFilter col-md-10">Italian</div>
             <div class="cuisineFilterCount col-md-2">90</div>
@@ -53,6 +57,7 @@
             <div class="cuisineFilter col-md-10">French</div>
             <div class="cuisineFilterCount col-md-2">53</div>
           </div> -->
+          <div class="row-no-gutter">
           <div class="filterHeader" id="ratingFilter">Rating</div>
           <div id="ratingStarsSection">
             <div class="row-no-gutters filterRow" onclick="filterStars(0)">
@@ -143,6 +148,7 @@
               />
             </div>
           </div>
+          </div>
           <div class="filterHeader" id="paymentFilter">Payment Options</div>
           <div class="row-no-gutters filterCardRow">
             <img
@@ -169,13 +175,13 @@
             />
           </div>
         </div>
-        <div class="col-md-9 clearfix" id="resultsArea">
-          <div class="resultSummary">
+        <div class="col-md-9" id="resultsArea">
+          <div class="row resultSummaryClass">
             <span id="resultSummary"></span>
             <span id="resultTime"></span>
           </div>
-          <div id="resultCardsArea" class="resultCards">
-            <!-- <div class="resultCard row">
+          <div id="resultCardsArea" class="row resultCards">
+            <div class="resultCard row">
               <div class="col-md-2">
                 <img
                   class="resultImage"
@@ -208,7 +214,7 @@
             <div class="resultCard row">Actual Results2</div> -->
             <!-- <button id="showmore" type="button" class="btn btn-light">
               Show More
-            </button> -->
+            </button>
           </div>
         </div>
       </div>
