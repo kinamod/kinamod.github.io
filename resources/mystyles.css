@@ -77,11 +77,6 @@ div{
 .restaurantDescriptionLine{
     color: rgb(168, 168, 168);
 }
-/* .filterRow{
-    padding-left: 10%;
-    font-weight:300;
-    border-radius: 5px;
-} */
 .cuisineFilterCount{
     font-weight:300;
     color: rgb(168, 168, 168);
@@ -93,9 +88,14 @@ div{
 }
 .filterRow{
     transition: .3s ease;
-    padding-left: 10%;
+    margin-left: 10%;
+    padding-right: 5%;
+    padding-left: 5%;
     font-weight:300;
     border-radius: 5px;
+}
+.starFilterRow{
+    padding-left: 10%;
 }
 .filterRow.selected{
     transition: .3s ease;

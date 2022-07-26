@@ -15,7 +15,9 @@ var currentHitsPerPage = 20;
 function init() {
   //initially populate results
   helper.setQuery($(this).val()).search();
-  debugLog("loaded just now");
+
+  //get the location, if we fail, just use the IP
+  navigator.geolocation.getCurrentPosition(setGeoPosition, setIPPosition);
 
   $(".cardIcon").on("click", function () {
     $(this).toggleClass("selected");
@@ -31,7 +33,6 @@ function init() {
       $("#showmore").css("display", "none");
       debugLog("none");
     }
-    debugLog("CONTENT - " + content);
     debugLog(content);
   });
 
@@ -48,6 +49,24 @@ function init() {
     debugLog(facetValue);
     helper.toggleFacetRefinement("food_type", facetValue).search();
   });
+}
+
+function setGeoPosition(position) {
+  debugLog(
+    "Latitude: " +
+      position.coords.latitude +
+      "<br>Longitude: " +
+      position.coords.longitude
+  );
+  helper.setQueryParameter(
+    "aroundLatLng",
+    `${position.coords.latitude}, ${position.coords.longitude}`
+  );
+}
+
+function setIPPosition(error) {
+  debugLog("Location rejected, use IP instead");
+  helper.setQueryParameter("aroundLatLngViaIP", true);
 }
 
 function paymentFilterOption(facetValue) {
