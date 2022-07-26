@@ -2,7 +2,7 @@
 // const algoliasearchHelper = require("algoliasearch-helper");
 
 const applicationID = "YEF3FUMF7I";
-const apiKey = "${{ env.APIKEY }}";
+const apiKey = "7a8595e0981d765c076de998c602ab77";
 const indexName = "restaurantlist";
 const debuggingOn = true;
 
